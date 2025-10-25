@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   validate :duplicate_user_id, on: :create
   validate :password_and_userid_presence
+  validate :update_val, on: :update
 
   validates :user_id, length: {
     minimum: 6,
@@ -49,6 +50,12 @@ class User < ApplicationRecord
 
   def to_s
     full_name
+  end
+
+  def update_val
+    if comment.blank? && nickname.blank?
+      errors.add(:base, "Required nickname or comment")
+    end
   end
 
   def duplicate_user_id
