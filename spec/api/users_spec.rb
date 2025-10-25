@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Api::Users", type: :request do
+  let(:taro_yamada) { create(:user, user_id: "TaroYamada", password: "PaSSwd4TY", password_confirmation: "PaSSwd4TY") }
+
   xdescribe "GET /api/posts" do
     it "returns a status ok" do
       create_list(:post, 3)
@@ -11,9 +13,7 @@ RSpec.describe "Api::Users", type: :request do
     end
   end
 
-  xdescribe "GET /api/posts/:id" do
-    let(:post) { create(:post) }
-    
+  describe "GET /api/users/:user_id" do
     it "returns the post" do
       get "/api/posts/#{post.id}"
       

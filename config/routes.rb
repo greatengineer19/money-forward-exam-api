@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root 'hello_world#index'
+  root to: proc { [200, { 'Content-Type' => 'text/plain' }, ['OK']]}
 
   namespace :api do
     resources :posts
