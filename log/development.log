@@ -405,3 +405,1012 @@ FOREIGN KEY ("user_id")
   [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='ExamApi'*/[0m
   [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='ExamApi'*/[0m
   [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='ExamApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1385530085917312860) /*application='ExamApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='ExamApi'*/[0m
+Migrating to CreateComments (20251025111509)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='ExamApi'*/[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "content" text, "sender" character varying DEFAULT 'anonymous', "post_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_2fd19c0db7"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+) /*application='ExamApi'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id") /*application='ExamApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251025111509') RETURNING "version" /*application='ExamApi'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='ExamApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1385530085917312860) /*application='ExamApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='ExamApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='ExamApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='ExamApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='ExamApi'*/[0m
+Started GET "/" for ::1 at 2025-10-25 18:34:12 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+Processing by HelloWorldController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering hello_world/index.html.erb within layouts/application
+  Rendered hello_world/index.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | GC: 0.1ms)
+Completed 200 OK in 88ms (Views: 8.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 31.1ms)
+
+
+Started GET "/posts" for ::1 at 2025-10-25 18:34:15 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/favicon.ico" for ::1 at 2025-10-25 18:34:15 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/posts" for ::1 at 2025-10-25 18:35:15 +0700
+Processing by Api::PostsController#index as HTML
+  [1m[36mPost Load (2.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:6:in `index'
+Completed 200 OK in 48ms (Views: 3.8ms | ActiveRecord: 12.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/posts" for ::1 at 2025-10-25 18:35:57 +0700
+Processing by Api::PostsController#index as HTML
+Completed 406 Not Acceptable in 4ms (ActiveRecord: 1.5ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::MissingExactTemplate (Api::PostsController#index is missing a template for request formats: text/html):
+  
+actionpack (8.1.0) lib/action_controller/metal/implicit_render.rb:49:in `default_render'
+actionpack (8.1.0) lib/action_controller/metal/basic_implicit_render.rb:9:in `send_action'
+actionpack (8.1.0) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (8.1.0) lib/action_controller/metal/rendering.rb:199:in `process_action'
+actionpack (8.1.0) lib/abstract_controller/callbacks.rb:261:in `block in process_action'
+activesupport (8.1.0) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.17) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.17) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (8.1.0) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (8.1.0) lib/action_text/rendering.rb:24:in `with_renderer'
+actiontext (8.1.0) lib/action_text/engine.rb:72:in `block (4 levels) in <class:Engine>'
+activesupport (8.1.0) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (8.1.0) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (8.1.0) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (8.1.0) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.1.0) lib/action_controller/metal/rescue.rb:36:in `process_action'
+actionpack (8.1.0) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.1.0) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.1.0) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.1.0) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.1.0) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.1.0) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.1.0) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.1.0) lib/abstract_controller/base.rb:157:in `process'
+actionview (8.1.0) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.1.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.1.0) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started GET "/api/posts" for ::1 at 2025-10-25 18:36:16 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 2.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_post_path' for #<ActionView::Base:0x00000000018628>)
+Caused by: NameError (undefined local variable or method `new_post_path' for #<ActionView::Base:0x00000000018628>)
+
+Information for: ActionView::Template::Error (undefined local variable or method `new_post_path' for #<ActionView::Base:0x00000000018628>):
+    2:   <div class="flex justify-between items-center mb-6">
+    3:     <h1 class="text-3xl font-bold">Posts</h1>
+    4:     <%= link_to "New Post", new_post_path, class: "btn btn-primary" %>
+    5:   </div>
+    6: 
+    7:   <div class="space-y-4">
+    8:     <% @posts.each do |post| %>
+  
+app/views/api/posts/index.html.erb:5
+
+Information for cause: NameError (undefined local variable or method `new_post_path' for #<ActionView::Base:0x00000000018628>):
+  
+app/views/api/posts/index.html.erb:5
+Started GET "/api/posts" for ::1 at 2025-10-25 18:36:41 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | GC: 1.4ms)
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 2.2ms (1 query, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/api/posts/new" for ::1 at 2025-10-25 18:36:42 +0700
+Processing by Api::PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/new.html.erb within layouts/application
+  Rendered api/posts/new.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/api/posts" for ::1 at 2025-10-25 18:39:52 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 0.8ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.1ms)
+Completed 200 OK in 6ms (Views: 1.7ms | ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/api/posts" for ::1 at 2025-10-25 18:39:53 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 3.2ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/posts/new" for ::1 at 2025-10-25 18:39:54 +0700
+Processing by Api::PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/new.html.erb within layouts/application
+  Rendered api/posts/new.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (Passed nil to the :model argument, expect an object or false)
+Caused by: ArgumentError (Passed nil to the :model argument, expect an object or false)
+
+Information for: ActionView::Template::Error (Passed nil to the :model argument, expect an object or false):
+     7:         </div>
+     8:         <div class="card-body">
+     9:           <%= form_with(model: @post, local: true) do |form| %>
+    10:             <% if @post.errors.any? %>
+    11:               <div class="alert alert-danger">
+    12:                 <h4><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h4>
+    13:                 <ul>
+  
+app/views/api/posts/new.html.erb:10
+
+Information for cause: ArgumentError (Passed nil to the :model argument, expect an object or false):
+  
+app/views/api/posts/new.html.erb:10
+Started GET "/api/posts/new" for ::1 at 2025-10-25 18:40:21 +0700
+Processing by Api::PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/new.html.erb within layouts/application
+  Rendered api/posts/new.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 4.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `posts_path' for #<ActionView::Base:0x00000000024900>)
+Caused by: NoMethodError (undefined method `posts_path' for #<ActionView::Base:0x00000000024900>)
+
+Information for: ActionView::Template::Error (undefined method `posts_path' for #<ActionView::Base:0x00000000024900>):
+     7:         </div>
+     8:         <div class="card-body">
+     9:           <%= form_with(model: @post, local: true) do |form| %>
+    10:             <% if @post.errors.any? %>
+    11:               <div class="alert alert-danger">
+    12:                 <h4><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h4>
+    13:                 <ul>
+  
+app/views/api/posts/new.html.erb:10
+
+Information for cause: NoMethodError (undefined method `posts_path' for #<ActionView::Base:0x00000000024900>):
+  
+app/views/api/posts/new.html.erb:10
+Started GET "/api/posts/new" for ::1 at 2025-10-25 18:40:36 +0700
+Processing by Api::PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/new.html.erb within layouts/application
+  Rendered api/posts/new.html.erb within layouts/application (Duration: 0.5ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | GC: 0.1ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 3.1ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `posts_path' for #<ActionView::Base:0x00000000028af0>)
+Caused by: NoMethodError (undefined method `posts_path' for #<ActionView::Base:0x00000000028af0>)
+
+Information for: ActionView::Template::Error (undefined method `posts_path' for #<ActionView::Base:0x00000000028af0>):
+     7:         </div>
+     8:         <div class="card-body">
+     9:           <%= form_with(model: @post, local: true, path: api_posts_path) do |form| %>
+    10:             <% if @post.errors.any? %>
+    11:               <div class="alert alert-danger">
+    12:                 <h4><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h4>
+    13:                 <ul>
+  
+app/views/api/posts/new.html.erb:10
+
+Information for cause: NoMethodError (undefined method `posts_path' for #<ActionView::Base:0x00000000028af0>):
+  
+app/views/api/posts/new.html.erb:10
+Started GET "/api/posts/new" for ::1 at 2025-10-25 18:42:04 +0700
+Processing by Api::PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/new.html.erb within layouts/application
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='new',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/new.html.erb:34
+  Rendered api/posts/new.html.erb within layouts/application (Duration: 7.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 6.5ms | ActiveRecord: 5.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:42:07 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started POST "/posts" for ::1 at 2025-10-25 18:42:13 +0700
+  
+ActionDispatch::MissingController (uninitialized constant PostsController)
+Caused by: NameError (uninitialized constant PostsController)
+
+Information for: ActionDispatch::MissingController (uninitialized constant PostsController):
+  
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:101:in `rescue in controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:97:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:44:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant PostsController):
+  
+activesupport (8.1.0) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.1.0) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.1.0) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:44:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started GET "/api/posts" for ::1 at 2025-10-25 18:42:18 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 2.3ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | GC: 0.2ms)
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/api/posts" for ::1 at 2025-10-25 18:42:18 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 1.7ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | GC: 0.5ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:42:18 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts" for ::1 at 2025-10-25 18:43:07 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | GC: 0.1ms)
+Completed 200 OK in 6ms (Views: 1.9ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:43:07 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts/new" for ::1 at 2025-10-25 18:43:08 +0700
+Processing by Api::PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='new',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/new.html.erb:34
+  Rendered api/posts/new.html.erb within layouts/application (Duration: 6.0ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | GC: 0.1ms)
+Completed 200 OK in 14ms (Views: 7.4ms | ActiveRecord: 2.0ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started POST "/api/posts" for ::1 at 2025-10-25 18:43:12 +0700
+Processing by Api::PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"test", "content"=>"test", "user_id"=>"", "published"=>"1"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+Completed 422 Unprocessable Content in 14ms (Views: 0.2ms | ActiveRecord: 2.8ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='ExamApi'*/[0m
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('test@gmail.com') LIMIT 1 /*application='ExamApi'*/[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "first_name", "last_name", "role", "created_at", "updated_at") VALUES ('test@gmail.com', '$2a$12$0MdjZkA7hDnWITO85YM8f.JHuFDRpFKT.C3kSMYtftEeRm2LQxJoy', 'test', 'dummy', 'admin', '2025-10-25 11:44:22.257382', '2025-10-25 11:44:22.257382') RETURNING "id" /*application='ExamApi'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='ExamApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='ExamApi'*/[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('test@gmail.com') AND "users"."id" != 1 LIMIT 1 /*application='ExamApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='ExamApi'*/[0m
+Started GET "/api/posts/new" for ::1 at 2025-10-25 18:44:27 +0700
+Processing by Api::PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='new',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/new.html.erb:34
+  Rendered api/posts/new.html.erb within layouts/application (Duration: 8.5ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | GC: 0.2ms)
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:44:27 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started POST "/api/posts" for ::1 at 2025-10-25 18:44:31 +0700
+Processing by Api::PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"test", "content"=>"test", "user_id"=>"1", "published"=>"0"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mPost Create (2.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "published", "published_at", "user_id", "created_at", "updated_at") VALUES ('test', 'test', FALSE, NULL, 1, '2025-10-25 11:44:31.100690', '2025-10-25 11:44:31.100690') RETURNING "id" /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+Completed 201 Created in 26ms (Views: 0.4ms | ActiveRecord: 4.3ms (2 queries, 0 cached) | GC: 0.7ms)
+
+
+Started POST "/api/posts" for ::1 at 2025-10-25 18:44:36 +0700
+Processing by Api::PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"test", "content"=>"test", "user_id"=>"1", "published"=>"0"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "published", "published_at", "user_id", "created_at", "updated_at") VALUES ('test', 'test', FALSE, NULL, 1, '2025-10-25 11:44:36.657286', '2025-10-25 11:44:36.657286') RETURNING "id" /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+Completed 201 Created in 10ms (Views: 0.2ms | ActiveRecord: 3.5ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/api/posts" for ::1 at 2025-10-25 18:44:36 +0700
+Processing by Api::PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"test", "content"=>"test", "user_id"=>"1", "published"=>"0"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "published", "published_at", "user_id", "created_at", "updated_at") VALUES ('test', 'test', FALSE, NULL, 1, '2025-10-25 11:44:36.782578', '2025-10-25 11:44:36.782578') RETURNING "id" /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+Completed 201 Created in 11ms (Views: 0.4ms | ActiveRecord: 3.0ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/api/posts" for ::1 at 2025-10-25 18:44:36 +0700
+Processing by Api::PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"test", "content"=>"test", "user_id"=>"1", "published"=>"0"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "published", "published_at", "user_id", "created_at", "updated_at") VALUES ('test', 'test', FALSE, NULL, 1, '2025-10-25 11:44:36.917625', '2025-10-25 11:44:36.917625') RETURNING "id" /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+Completed 201 Created in 10ms (Views: 0.3ms | ActiveRecord: 3.1ms (2 queries, 0 cached) | GC: 0.1ms)
+
+
+Started POST "/api/posts" for ::1 at 2025-10-25 18:44:37 +0700
+Processing by Api::PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"test", "content"=>"test", "user_id"=>"1", "published"=>"0"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "published", "published_at", "user_id", "created_at", "updated_at") VALUES ('test', 'test', FALSE, NULL, 1, '2025-10-25 11:44:37.059999', '2025-10-25 11:44:37.059999') RETURNING "id" /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+Completed 201 Created in 10ms (Views: 0.5ms | ActiveRecord: 3.8ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started POST "/api/posts" for ::1 at 2025-10-25 18:44:37 +0700
+Processing by Api::PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"test", "content"=>"test", "user_id"=>"1", "published"=>"0"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "published", "published_at", "user_id", "created_at", "updated_at") VALUES ('test', 'test', FALSE, NULL, 1, '2025-10-25 11:44:37.202613', '2025-10-25 11:44:37.202613') RETURNING "id" /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+Completed 201 Created in 10ms (Views: 0.3ms | ActiveRecord: 2.3ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/api/posts" for ::1 at 2025-10-25 18:44:37 +0700
+Processing by Api::PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"test", "content"=>"test", "user_id"=>"1", "published"=>"0"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "published", "published_at", "user_id", "created_at", "updated_at") VALUES ('test', 'test', FALSE, NULL, 1, '2025-10-25 11:44:37.338556', '2025-10-25 11:44:37.338556') RETURNING "id" /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+Completed 201 Created in 10ms (Views: 0.4ms | ActiveRecord: 3.3ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/api/posts" for ::1 at 2025-10-25 18:44:37 +0700
+Processing by Api::PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"test", "content"=>"test", "user_id"=>"1", "published"=>"0"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "published", "published_at", "user_id", "created_at", "updated_at") VALUES ('test', 'test', FALSE, NULL, 1, '2025-10-25 11:44:37.456503', '2025-10-25 11:44:37.456503') RETURNING "id" /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*action='create',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:19:in `create'
+Completed 201 Created in 8ms (Views: 0.3ms | ActiveRecord: 2.1ms (2 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/api/posts" for ::1 at 2025-10-25 18:44:38 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 6.3ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | GC: 0.3ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `post_path' for #<ActionView::Base:0x000000000328c0>)
+Caused by: NoMethodError (undefined method `post_path' for #<ActionView::Base:0x000000000328c0>)
+
+Information for: ActionView::Template::Error (undefined method `post_path' for #<ActionView::Base:0x000000000328c0>):
+    10:         <div class="flex justify-between items-start mb-2">
+    11:           <h2 class="text-2xl font-semibold">
+    12:             <%= link_to post.title, post %>
+    13:           </h2>
+    14:           <% if post.published? %>
+    15:             <span class="badge badge-success">Published</span>
+    16:           <% else %>
+  
+app/views/api/posts/index.html.erb:13
+app/views/api/posts/index.html.erb:9
+
+Information for cause: NoMethodError (undefined method `post_path' for #<ActionView::Base:0x000000000328c0>):
+  
+app/views/api/posts/index.html.erb:13
+app/views/api/posts/index.html.erb:9
+Started GET "/api/posts" for ::1 at 2025-10-25 18:44:40 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 5.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `post_path' for #<ActionView::Base:0x00000000032d20>)
+Caused by: NoMethodError (undefined method `post_path' for #<ActionView::Base:0x00000000032d20>)
+
+Information for: ActionView::Template::Error (undefined method `post_path' for #<ActionView::Base:0x00000000032d20>):
+    10:         <div class="flex justify-between items-start mb-2">
+    11:           <h2 class="text-2xl font-semibold">
+    12:             <%= link_to post.title, post %>
+    13:           </h2>
+    14:           <% if post.published? %>
+    15:             <span class="badge badge-success">Published</span>
+    16:           <% else %>
+  
+app/views/api/posts/index.html.erb:13
+app/views/api/posts/index.html.erb:9
+
+Information for cause: NoMethodError (undefined method `post_path' for #<ActionView::Base:0x00000000032d20>):
+  
+app/views/api/posts/index.html.erb:13
+app/views/api/posts/index.html.erb:9
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:44:40 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts" for ::1 at 2025-10-25 18:45:26 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 7.2ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.2ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 5.3ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"api/posts"}, missing required keys: [:id])
+Caused by: ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"api/posts"}, missing required keys: [:id])
+
+Information for: ActionView::Template::Error (No route matches {:action=>"show", :controller=>"api/posts"}, missing required keys: [:id]):
+    10:         <div class="flex justify-between items-start mb-2">
+    11:           <h2 class="text-2xl font-semibold">
+    12:             <%= link_to post.title, api_post_path, post %>
+    13:           </h2>
+    14:           <% if post.published? %>
+    15:             <span class="badge badge-success">Published</span>
+    16:           <% else %>
+  
+app/views/api/posts/index.html.erb:13
+app/views/api/posts/index.html.erb:9
+
+Information for cause: ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"api/posts"}, missing required keys: [:id]):
+  
+app/views/api/posts/index.html.erb:13
+app/views/api/posts/index.html.erb:9
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:45:27 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts" for ::1 at 2025-10-25 18:45:45 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 8.4ms | GC: 1.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | GC: 1.9ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 4.3ms (2 queries, 0 cached) | GC: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `post_path' for #<ActionView::Base:0x0000000003bab0>)
+Caused by: NoMethodError (undefined method `post_path' for #<ActionView::Base:0x0000000003bab0>)
+
+Information for: ActionView::Template::Error (undefined method `post_path' for #<ActionView::Base:0x0000000003bab0>):
+    30:           
+    31:           <div class="space-x-3">
+    32:             <%= link_to "View", post, class: "text-blue-600" %>
+    33:             <%= link_to "Edit", api_edit_post_path(post), class: "text-green-600" %>
+    34:             <%= button_to "Delete", post, method: :delete,
+    35:                 data: { turbo_confirm: "Are you sure?" },
+    36:                 class: "text-red-600" %>
+  
+app/views/api/posts/index.html.erb:33
+app/views/api/posts/index.html.erb:9
+
+Information for cause: NoMethodError (undefined method `post_path' for #<ActionView::Base:0x0000000003bab0>):
+  
+app/views/api/posts/index.html.erb:33
+app/views/api/posts/index.html.erb:9
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:45:45 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts" for ::1 at 2025-10-25 18:45:57 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 6.8ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | GC: 0.2ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 5.0ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `api_edit_post_path' for #<ActionView::Base:0x000000000401c8>)
+Caused by: NoMethodError (undefined method `api_edit_post_path' for #<ActionView::Base:0x000000000401c8>)
+
+Information for: ActionView::Template::Error (undefined method `api_edit_post_path' for #<ActionView::Base:0x000000000401c8>):
+    31:           <div class="space-x-3">
+    32:             <%= link_to "View", api_post_path(post), class: "text-blue-600" %>
+    33:             <%= link_to "Edit", api_edit_post_path(post), class: "text-green-600" %>
+    34:             <%= button_to "Delete", api_post_path(post), method: :delete,
+    35:                 data: { turbo_confirm: "Are you sure?" },
+    36:                 class: "text-red-600" %>
+    37:           </div>
+  
+app/views/api/posts/index.html.erb:34
+app/views/api/posts/index.html.erb:9
+
+Information for cause: NoMethodError (undefined method `api_edit_post_path' for #<ActionView::Base:0x000000000401c8>):
+  
+app/views/api/posts/index.html.erb:34
+app/views/api/posts/index.html.erb:9
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:45:57 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts" for ::1 at 2025-10-25 18:46:01 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 6.8ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | GC: 0.2ms)
+Completed 200 OK in 11ms (Views: 5.3ms | ActiveRecord: 3.7ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:46:01 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts" for ::1 at 2025-10-25 18:47:41 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.3ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_post_path' for #<ActionView::Base:0x00000000048c10>)
+Caused by: NameError (undefined local variable or method `new_post_path' for #<ActionView::Base:0x00000000048c10>)
+
+Information for: ActionView::Template::Error (undefined local variable or method `new_post_path' for #<ActionView::Base:0x00000000048c10>):
+     5:       <h1 class="text-5xl font-extrabold mb-4">Welcome to Our Blog</h1>
+     6:       <p class="text-xl text-blue-100 mb-8">Inspiring stories, ideas, and insights</p>
+     7:       <%= link_to new_post_path, 
+     8:           class: "inline-flex items-center px-8 py-4 bg-white text-blue-600 font-bold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200" do %>
+     9:         Start Writing
+    10:         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    11:           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+  
+app/views/api/posts/index.html.erb:8
+
+Information for cause: NameError (undefined local variable or method `new_post_path' for #<ActionView::Base:0x00000000048c10>):
+  
+app/views/api/posts/index.html.erb:8
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:47:42 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts" for ::1 at 2025-10-25 18:47:47 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | GC: 0.1ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.3ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `api_new_post_path' for #<ActionView::Base:0x0000000004d210>)
+Caused by: NameError (undefined local variable or method `api_new_post_path' for #<ActionView::Base:0x0000000004d210>)
+
+Information for: ActionView::Template::Error (undefined local variable or method `api_new_post_path' for #<ActionView::Base:0x0000000004d210>):
+     5:       <h1 class="text-5xl font-extrabold mb-4">Welcome to Our Blog</h1>
+     6:       <p class="text-xl text-blue-100 mb-8">Inspiring stories, ideas, and insights</p>
+     7:       <%= link_to api_new_post_path, 
+     8:           class: "inline-flex items-center px-8 py-4 bg-white text-blue-600 font-bold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200" do %>
+     9:         Start Writing
+    10:         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    11:           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+  
+app/views/api/posts/index.html.erb:8
+
+Information for cause: NameError (undefined local variable or method `api_new_post_path' for #<ActionView::Base:0x0000000004d210>):
+  
+app/views/api/posts/index.html.erb:8
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:47:47 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts" for ::1 at 2025-10-25 18:48:04 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" LIMIT 1 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:20
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:22
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 8.4ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | GC: 0.2ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 5.4ms (3 queries, 0 cached) | GC: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `edit_post_path' for #<ActionView::Base:0x000000000519c8>)
+Caused by: NoMethodError (undefined method `edit_post_path' for #<ActionView::Base:0x000000000519c8>)
+
+Information for: ActionView::Template::Error (undefined method `edit_post_path' for #<ActionView::Base:0x000000000519c8>):
+    62:                   
+    63:                   <div class="flex space-x-3">
+    64:                     <%= link_to edit_post_path(post), class: "text-gray-400 hover:text-blue-600" do %>
+    65:                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    66:                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+    67:                       </svg>
+    68:                     <% end %>
+  
+app/views/api/posts/index.html.erb:65
+app/views/api/posts/index.html.erb:22
+
+Information for cause: NoMethodError (undefined method `edit_post_path' for #<ActionView::Base:0x000000000519c8>):
+  
+app/views/api/posts/index.html.erb:65
+app/views/api/posts/index.html.erb:22
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:48:04 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts" for ::1 at 2025-10-25 18:48:11 +0700
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" LIMIT 1 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:20
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:22
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 7.9ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | GC: 0.2ms)
+Completed 200 OK in 15ms (Views: 8.3ms | ActiveRecord: 5.1ms (3 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:48:11 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts/new" for ::1 at 2025-10-25 18:48:11 +0700
+Processing by Api::PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='new',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/new.html.erb:34
+  Rendered api/posts/new.html.erb within layouts/application (Duration: 2.2ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | GC: 0.1ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/api/posts/new" for ::1 at 2025-10-25 18:48:14 +0700
+Processing by Api::PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/new.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='new',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/new.html.erb:34
+  Rendered api/posts/new.html.erb within layouts/application (Duration: 5.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/posts/new" for ::1 at 2025-10-25 18:48:18 +0700
+Processing by Api::PostsController#new as HTML
+Started GET "/api/posts" for ::1 at 2025-10-25 18:48:18 +0700
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='new',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/new.html.erb:34
+  Rendered api/posts/new.html.erb within layouts/application (Duration: 3.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 1.7ms)
+Completed 200 OK in 12ms (Views: 5.4ms | ActiveRecord: 3.6ms (1 query, 0 cached) | GC: 2.0ms)
+
+
+Processing by Api::PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering api/posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT 25 OFFSET 0 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='ExamApi',controller='posts'*/[0m
+  ↳ app/views/api/posts/index.html.erb:9
+  Rendered api/posts/index.html.erb within layouts/application (Duration: 6.0ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | GC: 0.2ms)
+Completed 200 OK in 10ms (Views: 5.2ms | ActiveRecord: 3.0ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:48:18 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/api/posts/8" for ::1 at 2025-10-25 18:48:22 +0700
+Processing by Api::PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 8 LIMIT 1 /*action='show',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:42:in `set_post'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/posts/8" for ::1 at 2025-10-25 18:48:22 +0700
+Processing by Api::PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 8 LIMIT 1 /*action='show',application='ExamApi',controller='posts'*/[0m
+  ↳ app/controllers/api/posts_controller.rb:42:in `set_post'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:48:22 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:48:23 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-25 18:48:23 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  

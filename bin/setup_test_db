@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# Save as: bin/setup_test_db
+
+require 'fileutils'
+
+puts 'Setting up test database...'
+
+system('RAILS_ENV=test bin/rails db:drop') || true
+system('RAILS_ENV=test bin/rails db:create') || true
+system('RAILS_ENV=test bin/rails db:schema:load') || true
+
+puts 'Test database ready!'

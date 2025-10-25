@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h2>Create New Post</h2>
+        </div>
+        <div class="card-body">
+          <%= form_with(model: @post, local: true, url: api_posts_path) do |form| %>
+            <% if @post.errors.any? %>
+              <div class="alert alert-danger">
+                <h4><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h4>
+                <ul>
+                  <% @post.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="mb-3">
+              <%= form.label :title, class: "form-label" %>
+              <%= form.text_field :title, class: "form-control", placeholder: "Enter title" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :content, class: "form-label" %>
+              <%= form.text_area :content, rows: 8, class: "form-control", placeholder: "Write content..." %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :user_id, "Author", class: "form-label" %>
+              <%= form.collection_select :user_id, User.all, :id, :email, 
+                  { prompt: "Select author" }, class: "form-select" %>
+            </div>
+
+            <div class="mb-3 form-check">
+              <%= form.check_box :published, class: "form-check-input" %>
+              <%= form.label :published, "Publish immediately", class: "form-check-label" %>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2">
+              <%= link_to "Cancel", api_posts_path, class: "btn btn-secondary" %>
+              <%= form.submit "Create Post", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

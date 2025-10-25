@@ -16,7 +16,7 @@ FactoryBot.define do
       end
       
       after(:create) do |post, evaluator|
-        create_list(:comment, evaluator.comments_count, post: post)
+        create_list(:comment, evaluator.comments_count, post_id: post.id)
       end
     end
   end
