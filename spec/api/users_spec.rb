@@ -136,32 +136,43 @@ RSpec.describe "Api::Users", type: :request do
     end
   end
 
-  xdescribe "PATCH /api/posts/:id" do
-    let(:post) { create(:post) }
+  describe "PATCH /users/:user_id" do
     let(:new_attributes) { { title: 'Updated Title' } }
     
-    it "updates the post" do
+    xit "updates the USER" do
       patch "/api/posts/#{post.id}", params: { post: new_attributes }
       
       post.reload
       expect(response).to have_http_status(:ok)
       expect(post.title).to eq('Updated Title')
     end
-    
-    it "persists updates to PostgreSQL" do
-      original_title = post.title
-      patch "/api/posts/#{post.id}", params: { post: new_attributes }
-      
-      # Verify change persisted in database
-      updated_post = Post.find(post.id)
-      expect(updated_post.title).to eq('Updated Title')
-      expect(updated_post.title).not_to eq(original_title)
+
+    context 'no user_id' do
+      before do
+        taro_yamada.update!(nickname: "Taro")
+      end
+
+      it "no returns the user" do
+        patch "/users/any", params: new_attributes, headers: basic_auth_header(taro_yamada.user_id, "PaSSwd4TY")
+
+        response_body = JSON.parse(response.body)
+        expect(response.status).to eql(404)
+        expect(response_body).to eq({"message"=>"No user found"})
+      end
     end
-    
-    it "returns errors for invalid data" do
-      patch "/api/posts/#{post.id}", params: { post: { title: '' } }
-      
-      expect(response).to have_http_status(:unprocessable_entity)
+
+    context 'no auth' do
+      before do
+        taro_yamada.update!(nickname: "Taro")
+      end
+
+      it "returns the user" do
+        get "/users/#{taro_yamada.user_id}", params: new_attributes
+
+        response_body = JSON.parse(response.body)
+        expect(response.status).to eql(401)
+        expect(response_body).to eq({"message"=>"Authentication failed"})
+      end
     end
   end
 

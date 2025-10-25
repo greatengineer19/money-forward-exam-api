@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 	skip_before_action :verify_authenticity_token, only: [:signup]
-	before_action :check_user, only: [:show]
-	before_action :authenticate_with_basic_auth, only: [:show]
-	before_action :authorize_user_access, only: [:show]
+	before_action :check_user, only: [:show, :update]
+	before_action :authenticate_with_basic_auth, only: [:show, :update]
+	before_action :authorize_user_access, only: [:show, :update]
 
 	def signup
 		new_user = User.new(
@@ -127,6 +127,10 @@ class UsersController < ApplicationController
 				"message": "Authentication failed"
 			}, status: :unauthorized and return
 		end
+	end
+
+	def update_params
+		params.permit(:nickname, :comment)
 	end
 
 	def signup_params
