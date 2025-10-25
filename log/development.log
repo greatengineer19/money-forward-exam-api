@@ -2174,3 +2174,213 @@ Processing by Api::PostsController#show as HTML
 Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+Started POST "/signup" for 127.0.0.1 at 2025-10-25 20:18:35 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20251025124609_change_user_attributes_follow_money_forward.rb
+
+
+):
+  
+activerecord (8.1.0) lib/active_record/migration.rb:743:in `check_pending_migrations'
+activerecord (8.1.0) lib/active_record/migration.rb:660:in `block (2 levels) in call'
+activesupport (8.1.0) lib/active_support/file_update_checker.rb:88:in `execute'
+activesupport (8.1.0) lib/active_support/file_update_checker.rb:98:in `execute_if_updated'
+activerecord (8.1.0) lib/active_record/migration.rb:667:in `block in call'
+activerecord (8.1.0) lib/active_record/migration.rb:657:in `synchronize'
+activerecord (8.1.0) lib/active_record/migration.rb:657:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1385530085917312860) /*application='ExamApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='ExamApi'*/[0m
+Migrating to ChangeUserAttributesFollowMoneyForward (20251025124609)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='ExamApi'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" ADD "nickname" character varying /*application='ExamApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "comment" character varying /*application='ExamApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "user_id" character varying /*application='ExamApi'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[33mUPDATE users SET user_id = id /*application='ExamApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ALTER COLUMN "user_id" SET NOT NULL /*application='ExamApi'*/[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "posts" DROP COLUMN "user_id" /*application='ExamApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "posts" ADD "user_id" character varying /*application='ExamApi'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE users DROP CONSTRAINT users_pkey; /*application='ExamApi'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE users ADD PRIMARY KEY (user_id) /*application='ExamApi'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("user_id")
+ /*application='ExamApi'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "id" /*application='ExamApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251025124609') RETURNING "version" /*application='ExamApi'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='ExamApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1385530085917312860) /*application='ExamApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='ExamApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='ExamApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='ExamApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='ExamApi'*/[0m
+Started POST "/signup" for 127.0.0.1 at 2025-10-25 20:18:44 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+Processing by UsersController#signup as */*
+  Parameters: {"user_id"=>"TaroYamada", "password"=>"[FILTERED]", "user"=>{}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Content in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (8.1.0) lib/action_controller/metal/request_forgery_protection.rb:321:in `handle_unverified_request'
+actionpack (8.1.0) lib/action_controller/metal/request_forgery_protection.rb:415:in `handle_unverified_request'
+actionpack (8.1.0) lib/action_controller/metal/request_forgery_protection.rb:404:in `verify_authenticity_token'
+activesupport (8.1.0) lib/active_support/callbacks.rb:362:in `block in make_lambda'
+activesupport (8.1.0) lib/active_support/callbacks.rb:179:in `block in call'
+actionpack (8.1.0) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.1.0) lib/active_support/callbacks.rb:180:in `call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:560:in `block in invoke_before'
+activesupport (8.1.0) lib/active_support/callbacks.rb:560:in `each'
+activesupport (8.1.0) lib/active_support/callbacks.rb:560:in `invoke_before'
+activesupport (8.1.0) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+activesupport (8.1.0) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (8.1.0) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.1.0) lib/action_controller/metal/rescue.rb:36:in `process_action'
+actionpack (8.1.0) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.1.0) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.1.0) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.1.0) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.1.0) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.1.0) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.1.0) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.1.0) lib/abstract_controller/base.rb:157:in `process'
+actionview (8.1.0) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.1.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.1.0) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:44:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started POST "/signup" for 127.0.0.1 at 2025-10-25 20:19:09 +0700
+Processing by UsersController#signup as */*
+  Parameters: {"user_id"=>"TaroYamada", "password"=>"[FILTERED]", "user"=>{}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: signup, request: #<ActionDispatch::Request:0x00000001180bf3d8>, params: {"user_id"=>"TaroYamada", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"signup", "user"=>{}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: signup, request: #<ActionDispatch::Request:0x00000001180bf3d8>, params: {"user_id"=>"TaroYamada", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"signup", "user"=>{}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: signup, request: #<ActionDispatch::Request:0x00000001180bf3d8>, params: {"user_id"=>"TaroYamada", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"signup", "user"=>{}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: signup, request: #<ActionDispatch::Request:0x00000001180bf3d8>, params: {"user_id"=>"TaroYamada", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"signup", "user"=>{}} }[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'user_id' for User.)
+Caused by: NoMethodError (undefined method `user_id=' for #<User id: nil, email: nil, password_digest: nil, first_name: nil, last_name: nil, role: nil, created_at: nil, updated_at: nil>)
+
+Information for: ActiveModel::UnknownAttributeError (unknown attribute 'user_id' for User.):
+  
+app/controllers/users_controller.rb:5:in `signup'
+
+Information for cause: NoMethodError (undefined method `user_id=' for #<User id: nil, email: nil, password_digest: nil, first_name: nil, last_name: nil, role: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/users_controller.rb:5:in `signup'
+Started POST "/signup" for 127.0.0.1 at 2025-10-25 20:20:22 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+Processing by UsersController#signup as */*
+  Parameters: {"user_id"=>"TaroYamada", "password"=>"[FILTERED]", "user"=>{"user_id"=>"TaroYamada"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: signup, request: #<ActionDispatch::Request:0x0000000112a9a700>, params: {"user_id"=>"TaroYamada", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"signup", "user"=>{"user_id"=>"TaroYamada"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: signup, request: #<ActionDispatch::Request:0x0000000112a9a700>, params: {"user_id"=>"TaroYamada", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"signup", "user"=>{"user_id"=>"TaroYamada"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: signup, request: #<ActionDispatch::Request:0x0000000112a9a700>, params: {"user_id"=>"TaroYamada", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"signup", "user"=>{"user_id"=>"TaroYamada"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: signup, request: #<ActionDispatch::Request:0x0000000112a9a700>, params: {"user_id"=>"TaroYamada", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"signup", "user"=>{"user_id"=>"TaroYamada"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='signup',application='ExamApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in `signup'
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "first_name", "last_name", "role", "created_at", "updated_at", "nickname", "comment", "user_id") VALUES (NULL, '$2a$12$uMycxcWGcH3OENGezoWMiO9PSMrYMziutQWUhojIb6TUJaaFkUOby', NULL, NULL, NULL, '2025-10-25 13:20:23.248496', '2025-10-25 13:20:23.248496', 'TaroYamada', NULL, 'TaroYamada') RETURNING "user_id" /*action='signup',application='ExamApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in `signup'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*action='signup',application='ExamApi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in `signup'
+Completed 200 OK in 182ms (Views: 0.1ms | ActiveRecord: 30.5ms (1 query, 0 cached) | GC: 0.2ms)
+
+

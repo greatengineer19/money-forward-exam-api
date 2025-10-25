@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	skip_before_action :verify_authenticity_token, only: [:signup]
+
 	def signup
 		new_user = User.new(
 			user_id: signup_params[:user_id],

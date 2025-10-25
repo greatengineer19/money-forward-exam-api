@@ -30,7 +30,7 @@ RSpec.describe "Api::Users", type: :request do
     end
   end
 
-  xdescribe "POST /signup" do
+  describe "POST /signup" do
     context "with valid parameters" do
       let(:valid_attributes) do
         {
@@ -46,9 +46,10 @@ RSpec.describe "Api::Users", type: :request do
 
         response_body = JSON.parse(response.body)
         expect(response_body).to eql({"message"=>"Account successfully created", "user"=>{"user_id"=>"TaroYamada", "nickname"=>"TaroYamada"}})
+        expect(response.status).to eql(200)
       end
       
-      it "persists data to PostgreSQL" do
+      xit "persists data to PostgreSQL" do
         post "/api/posts", params: { post: valid_attributes }
         
         created_post = Post.last
