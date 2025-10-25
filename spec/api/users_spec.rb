@@ -48,23 +48,47 @@ RSpec.describe "Api::Users", type: :request do
         expect(response_body).to eql({"message"=>"Account successfully created", "user"=>{"user_id"=>"TaroYamada", "nickname"=>"TaroYamada"}})
         expect(response.status).to eql(200)
       end
-      
-      xit "persists data to PostgreSQL" do
-        post "/api/posts", params: { post: valid_attributes }
-        
-        created_post = Post.last
-        expect(created_post.title).to eq('Test Post')
-        expect(created_post.user_id).to eq(user.id)
-      end
     end
     
-    xcontext "with invalid parameters" do
-      it "does not create a new post" do
+    context "with invalid parameters, no user id and pw" do
+      let(:invalid_attributes) do
+        {
+          user_id: "",
+          password: ""
+        }
+      end
+
+      it "does not create a new user" do
         expect {
-          post "/api/posts", params: { post: invalid_attributes }
-        }.not_to change(Post, :count)
-        
-        expect(response).to have_http_status(:unprocessable_entity)
+          post "/signup", params: invalid_attributes
+        }.to not_change(User, :count)
+
+        response_body = JSON.parse(response.body)
+        expect(response_body).to eql({"message"=>"Account creation failed", "cause"=>"Required user_id and password"})
+        expect(response.status).to eql(400)
+      end
+    end
+
+    context "with invalid parameters, user id is used" do
+      let(:duplicate_attributes) do
+        {
+          user_id: "TaroYamada",
+          password: "PaSSwd4TY"
+        }
+      end
+
+      before do
+        create(:user, user_id: "TaroYamada", password: "PaSSwd4TY", password_confirmation: "PaSSwd4TY")
+      end
+
+      it "does not create a new user" do
+        expect {
+          post "/signup", params: duplicate_attributes
+        }.to not_change(User, :count)
+
+        response_body = JSON.parse(response.body)
+        expect(response_body).to eql({"message"=>"Account creation failed", "cause"=>"Already same user_id is used"})
+        expect(response.status).to eql(400)
       end
     end
   end
