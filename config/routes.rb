@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   end
 
   post "/signup", to: "users#signup"
+  get "/users/:user_id", to: "users#show", as: :user
 end

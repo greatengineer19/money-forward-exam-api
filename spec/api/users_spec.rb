@@ -3,6 +3,12 @@ require 'rails_helper'
 RSpec.describe "Api::Users", type: :request do
   let(:taro_yamada) { create(:user, user_id: "TaroYamada", password: "PaSSwd4TY", password_confirmation: "PaSSwd4TY") }
 
+  def basic_auth_header(user_id, password)
+    credentials = Base64.strict_encode64("#{user_id}:#{password}")
+
+    { 'Authorization' => "Basic #{credentials}"}
+  end
+
   xdescribe "GET /api/posts" do
     it "returns a status ok" do
       create_list(:post, 3)
@@ -13,20 +19,57 @@ RSpec.describe "Api::Users", type: :request do
     end
   end
 
-  describe "GET /api/users/:user_id" do
-    it "returns the post" do
-      get "/api/posts/#{post.id}"
-      
-      expect(response).to have_http_status(:ok)
-      expect(json_response['id']).to eq(post.id)
-      expect(json_response['title']).to eq(post.title)
+  describe "GET /users/:user_id" do
+    context 'no nickname' do
+      it "returns the user" do
+        get "/users/#{taro_yamada.user_id}", headers: basic_auth_header(taro_yamada.user_id, "PaSSwd4TY")
+
+        response_body = JSON.parse(response.body)
+        expect(response).to have_http_status(:ok)
+        expect(response_body).to eq({"message"=>"User details by user_id", "user"=>{"user_id"=>"TaroYamada", "nickname"=>"TaroYamada"}})
+      end
     end
     
-    it "returns 404 when post not found" do
-      get "/api/posts/999999"
-      
-      expect(response).to have_http_status(:not_found)
-      expect(json_response['error']).to eq('Post not found')
+    context 'have nickname' do
+      before do
+        taro_yamada.update!(nickname: "Taro")
+      end
+
+      it "returns the user" do
+        get "/users/#{taro_yamada.user_id}", headers: basic_auth_header(taro_yamada.user_id, "PaSSwd4TY")
+
+        response_body = JSON.parse(response.body)
+        expect(response).to have_http_status(:ok)
+        expect(response_body).to eq({"message"=>"User details by user_id", "user"=>{"user_id"=>"TaroYamada", "nickname"=>"Taro", "comment"=>"I'm happy."}})
+      end
+    end
+
+    context 'no user_id' do
+      before do
+        taro_yamada.update!(nickname: "Taro")
+      end
+
+      it "returns the user" do
+        get "/users/any", headers: basic_auth_header(taro_yamada.user_id, "PaSSwd4TY")
+
+        response_body = JSON.parse(response.body)
+        expect(response.status).to eql(404)
+        expect(response_body).to eq({"message"=>"No user found"})
+      end
+    end
+
+    context 'no auth' do
+      before do
+        taro_yamada.update!(nickname: "Taro")
+      end
+
+      it "returns the user" do
+        get "/users/#{taro_yamada.user_id}"
+
+        response_body = JSON.parse(response.body)
+        expect(response.status).to eql(401)
+        expect(response_body).to eq({"message"=>"Authentication failed"})
+      end
     end
   end
 
