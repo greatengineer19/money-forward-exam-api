@@ -17,9 +17,9 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      render json: @post, status: :created
+      redirect_to api_post_path(@post), notice: "Post was successfully created."
     else
-      render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

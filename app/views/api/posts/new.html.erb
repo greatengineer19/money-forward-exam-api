@@ -1,51 +1,59 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header">
-          <h2>Create New Post</h2>
+<div class="min-h-screen bg-gray-50 py-8 px-4">
+  <div class="max-w-2xl mx-auto">
+    <div class="text-center mb-8">
+      <h1 class="text-2xl font-bold text-gray-900">Create New Post</h1>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md p-6">
+      <%= form_with(model: @post, local: true, url: api_posts_path) do |form| %>
+        <!-- Add this style tag at the top of your form -->
+        <style>
+          .form-input { width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; margin-bottom: 16px; }
+          .form-label { display: block; font-weight: 500; color: #374151; margin-bottom: 4px; }
+          .btn { padding: 8px 16px; border-radius: 6px; font-weight: 500; cursor: pointer; }
+          .btn-primary { background: #2563eb; color: white; border: none; }
+          .btn-secondary { background: white; color: #374151; border: 1px solid #d1d5db; }
+          .error-box { background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 12px; margin-bottom: 16px; }
+        </style>
+
+        <% if @post.errors.any? %>
+          <div class="error-box">
+            <h3 class="text-sm font-semibold text-red-800">
+              <%= pluralize(@post.errors.count, "error") %> found:
+            </h3>
+            <ul class="text-sm text-red-700 list-disc list-inside">
+              <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div>
+          <%= form.label :title, "Title", class: "form-label" %>
+          <%= form.text_field :title, class: "form-input" %>
         </div>
-        <div class="card-body">
-          <%= form_with(model: @post, local: true, url: api_posts_path) do |form| %>
-            <% if @post.errors.any? %>
-              <div class="alert alert-danger">
-                <h4><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h4>
-                <ul>
-                  <% @post.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
 
-            <div class="mb-3">
-              <%= form.label :title, class: "form-label" %>
-              <%= form.text_field :title, class: "form-control", placeholder: "Enter title" %>
-            </div>
-
-            <div class="mb-3">
-              <%= form.label :content, class: "form-label" %>
-              <%= form.text_area :content, rows: 8, class: "form-control", placeholder: "Write content..." %>
-            </div>
-
-            <div class="mb-3">
-              <%= form.label :user_id, "Author", class: "form-label" %>
-              <%= form.collection_select :user_id, User.all, :id, :email, 
-                  { prompt: "Select author" }, class: "form-select" %>
-            </div>
-
-            <div class="mb-3 form-check">
-              <%= form.check_box :published, class: "form-check-input" %>
-              <%= form.label :published, "Publish immediately", class: "form-check-label" %>
-            </div>
-
-            <div class="d-flex justify-content-end gap-2">
-              <%= link_to "Cancel", api_posts_path, class: "btn btn-secondary" %>
-              <%= form.submit "Create Post", class: "btn btn-primary" %>
-            </div>
-          <% end %>
+        <div>
+          <%= form.label :content, "Content", class: "form-label" %>
+          <%= form.text_area :content, rows: 6, class: "form-input" %>
         </div>
-      </div>
+
+        <div>
+          <%= form.label :user_id, "Author", class: "form-label" %>
+          <%= form.collection_select :user_id, User.all, :id, :email, { prompt: "Select author" }, class: "form-input" %>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <%= form.check_box :published %>
+          <%= form.label :published, "Publish immediately", style: "margin-left: 8px;" %>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px;">
+          <%= link_to "Cancel", api_posts_path, class: "btn btn-secondary" %>
+          <%= form.submit "Create Post", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
