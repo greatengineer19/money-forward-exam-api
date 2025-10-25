@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get "posts/index"
+  get "posts/show"
+  get "posts/new"
+  get "posts/edit"
+  get "posts/create"
+  get "posts/update"
+  get "posts/destroy"
   get "hello_world/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -14,4 +21,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root "hello_world#index"
+
+  resources :posts
 end
