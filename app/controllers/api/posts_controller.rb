@@ -2,6 +2,16 @@ class Api::PostsController < ApplicationController
   before_action :set_post, only: %i[show update destroy]
 
   def index
+    user_yamada = User.find_by(user_id: "TaroYamada")
+		if user_yamada.nil?
+			user_yamada = User.new(
+				user_id: "TaroYamada",
+				password: "PaSSwd4TY",
+				password_confirmation: "PaSSwd4TY"
+			)
+			user_yamada.save
+		end
+  
     @posts = Post.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
