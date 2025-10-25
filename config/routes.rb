@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :posts
   end
+
+  post "/signup", to: "users#signup"
 end

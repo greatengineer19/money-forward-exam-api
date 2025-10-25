@@ -1,15 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
 
-  # Validations
-  validates :email,
-            presence: true,
-            uniqueness: { case_sensitive: false },
-            format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password,
             length: { minimum: 6 },
             if: -> { new_record? || !password.nil? }
-  validates :first_name, :last_name, presence: true
 
   # Associations
   has_many :posts, dependent: :destroy
