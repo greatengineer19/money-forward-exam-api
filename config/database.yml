@@ -91,18 +91,16 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: exam_api_production
-    username: exam_api
+    database: railway
+    username: postgres
     password: <%= ENV["EXAM_API_DATABASE_PASSWORD"] %>
+    host: postgres.railway.internal
   cache:
     <<: *primary_production
-    database: exam_api_production_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: exam_api_production_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: exam_api_production_cable
     migrations_paths: db/cable_migrate
