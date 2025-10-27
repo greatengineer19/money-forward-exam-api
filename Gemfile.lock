@@ -451,6 +451,7 @@ DEPENDENCIES
   bundler-audit
   byebug
   capybara
+  connection_pool
   database_cleaner-active_record (~> 2.1)
   debug
   factory_bot_rails (~> 6.4.0)

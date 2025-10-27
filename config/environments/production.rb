@@ -49,29 +49,25 @@ Rails.application.configure do
   # Replace the default in-process memory cache store with a durable alternative.
   config.cache_store = :redis_cache_store, {
     url: ENV.fetch('REDIS_URL', 'redis://localhost:6379/0'),
-
+    
     namespace: 'myapp',
-    pool_size: ENV.fetch('RAILS_MAX_THREADS', 5).to_i,
-    pool_timeout: 5,
-
+    
+    # Connection pool settings (use redis_options)
     connect_timeout: 30,
     read_timeout: 1,
     write_timeout: 1,
-
     reconnect_attempts: 3,
-    reconnect_delay: 0.5,
-    reconnect_delay_max: 5,
-
+    
     # Compression (saves memory for large values)
     compress: true,
     compress_threshold: 1.kilobyte,
-
+    
     # Default TTL
     expires_in: 1.hour,
-
+    
     # Race condition protection
     race_condition_ttl: 10.seconds,
-
+    
     error_handler: -> (method:, returning:, exception:) {
       Bugsnag.notify(exception) if defined?(Bugsnag)
       Rails.logger.error("[Cache Error] #{method}: #{exception.message}")
