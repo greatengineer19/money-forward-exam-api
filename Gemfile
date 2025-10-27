@@ -19,6 +19,10 @@ gem 'jbuilder'
 
 gem 'byebug'
 gem 'rubocop'
+gem 'httparty'
+gem 'request_store'
+gem 'timecop'
+gem 'redis'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -77,3 +81,7 @@ group :test do
   gem 'database_cleaner-active_record', '~> 2.1'
   gem 'shoulda-matchers', '~> 6.0'
 end
+
+gem "sidekiq", "~> 8.0"
+
+gem "sidekiq-cron", "~> 2.3"

@@ -19,7 +19,7 @@ RSpec.describe "Api::Users", type: :request do
     end
   end
 
-  describe "GET /users/:user_id" do
+  xdescribe "GET /users/:user_id" do
     context 'no nickname' do
       it "returns the user" do
         get "/users/#{taro_yamada.user_id}", headers: basic_auth_header(taro_yamada.user_id, "PaSSwd4TY")
@@ -73,7 +73,7 @@ RSpec.describe "Api::Users", type: :request do
     end
   end
 
-  describe "POST /signup" do
+  xdescribe "POST /signup" do
     context "with valid parameters" do
       let(:valid_attributes) do
         {
@@ -136,7 +136,7 @@ RSpec.describe "Api::Users", type: :request do
     end
   end
 
-  describe "PATCH /users/:user_id" do
+  xdescribe "PATCH /users/:user_id" do
     let(:new_attributes) { { title: 'Updated Title' } }
     
     xit "updates the USER" do

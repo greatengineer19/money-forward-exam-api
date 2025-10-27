@@ -1,5 +1,11 @@
 FactoryBot.define do
 	factory :user do
+		name = ''
+		until name.length.between?(6, 20)
+			name = Faker::Name.first_name.downcase.gsub(/[^a-z]/, '')
+		end
+
+		user_id { name }
 		email { Faker::Internet.unique.email }
 		password { 'password123' }
 		password_confirmation { 'password123' }

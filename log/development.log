@@ -2405,3 +2405,907 @@ Filter chain halted as :authenticate_with_basic_auth rendered or redirected
 Completed 401 Unauthorized in 27ms (Views: 0.1ms | ActiveRecord: 8.3ms (1 query, 0 cached) | GC: 0.2ms)
 
 
+Started GET "/" for ::1 at 2025-10-27 19:53:00 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+  
+ActionDispatch::MissingController (uninitialized constant HealthController)
+Caused by: NameError (uninitialized constant HealthController)
+
+Information for: ActionDispatch::MissingController (uninitialized constant HealthController):
+  
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:101:in `rescue in controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:97:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+request_store (1.7.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+activesupport (8.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant HealthController):
+  
+activesupport (8.1.0) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.1.0) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.1.0) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+request_store (1.7.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+activesupport (8.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started GET "/" for ::1 at 2025-10-27 19:53:01 +0700
+  
+ActionDispatch::MissingController (uninitialized constant HealthController)
+Caused by: NameError (uninitialized constant HealthController)
+
+Information for: ActionDispatch::MissingController (uninitialized constant HealthController):
+  
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:101:in `rescue in controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:97:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+request_store (1.7.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+activesupport (8.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant HealthController):
+  
+activesupport (8.1.0) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.1.0) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.1.0) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+request_store (1.7.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+activesupport (8.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2025-10-27 19:53:01 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for ::1 at 2025-10-27 19:53:34 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+Processing by Rails::HealthController#show as HTML
+  Rendering html template
+  Rendered html template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 19:53:37 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/" for ::1 at 2025-10-27 19:53:38 +0700
+Processing by Rails::HealthController#show as HTML
+  Rendering html template
+  Rendered html template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 19:53:38 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/" for ::1 at 2025-10-27 19:53:43 +0700
+Processing by Rails::HealthController#show as HTML
+  Rendering html template
+  Rendered html template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 19:53:43 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/" for ::1 at 2025-10-27 19:54:33 +0700
+  
+ActionDispatch::MissingController (uninitialized constant HealthController)
+Caused by: NameError (uninitialized constant HealthController)
+
+Information for: ActionDispatch::MissingController (uninitialized constant HealthController):
+  
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:101:in `rescue in controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:97:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+request_store (1.7.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+activesupport (8.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant HealthController):
+  
+activesupport (8.1.0) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (8.1.0) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.1.0) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+request_store (1.7.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+activesupport (8.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 19:54:33 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/" for ::1 at 2025-10-27 19:56:10 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+  
+ActionDispatch::MissingController (uninitialized constant PostsController)
+Caused by: NameError (uninitialized constant PostsController)
+
+Information for: ActionDispatch::MissingController (uninitialized constant PostsController):
+  
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:101:in `rescue in controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:97:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+request_store (1.7.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+activesupport (8.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant PostsController):
+  
+activesupport (8.1.0) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.1.0) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+request_store (1.7.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+activesupport (8.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 19:56:10 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/" for ::1 at 2025-10-27 19:56:10 +0700
+  
+ActionDispatch::MissingController (uninitialized constant PostsController)
+Caused by: NameError (uninitialized constant PostsController)
+
+Information for: ActionDispatch::MissingController (uninitialized constant PostsController):
+  
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:101:in `rescue in controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:97:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+request_store (1.7.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+activesupport (8.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant PostsController):
+  
+activesupport (8.1.0) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.1.0) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.1.0) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.0) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.0) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.0) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.3) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.3) lib/rack/etag.rb:29:in `call'
+rack (3.2.3) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.3) lib/rack/head.rb:15:in `call'
+actionpack (8.1.0) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+activerecord (8.1.0) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.0) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+request_store (1.7.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+activesupport (8.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 19:56:11 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/" for ::1 at 2025-10-27 19:56:21 +0700
+  
+ArgumentError (Reported error must be an Exception, got: #<SyntaxError: /Users/juandreww/Projects/interview_2025/money-forward/money-forward-exam-api/app/controllers/api/posts_controller.rb:78: syntax error, unexpected `end'>)
+Caused by: SyntaxError (/Users/juandreww/Projects/interview_2025/money-forward/money-forward-exam-api/app/controllers/api/posts_controller.rb:78: syntax error, unexpected `end')
+
+Information for: ArgumentError (Reported error must be an Exception, got: #<SyntaxError: /Users/juandreww/Projects/interview_2025/money-forward/money-forward-exam-api/app/controllers/api/posts_controller.rb:78: syntax error, unexpected `end'>):
+  
+activesupport (8.1.0) lib/active_support/error_reporter.rb:235:in `report'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:36:in `rescue in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:32:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.0) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.0) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+request_store (1.7.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.3) lib/rack/method_override.rb:28:in `call'
+rack (3.2.3) lib/rack/runtime.rb:24:in `call'
+activesupport (8.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.0) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/executor.rb:20:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.0) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.1.0) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+
+Information for cause: SyntaxError (/Users/juandreww/Projects/interview_2025/money-forward/money-forward-exam-api/app/controllers/api/posts_controller.rb:78: syntax error, unexpected `end'):
+  
+app/controllers/api/posts_controller.rb:78: syntax error, unexpected `end'
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 19:56:21 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/" for ::1 at 2025-10-27 19:57:21 +0700
+Processing by Api::PostsController#index as HTML
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 19:57:22 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/" for ::1 at 2025-10-27 19:57:24 +0700
+Processing by Api::PostsController#index as HTML
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 19:57:24 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/" for ::1 at 2025-10-27 19:57:25 +0700
+Processing by Api::PostsController#index as HTML
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 19:57:25 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/cache_demo" for ::1 at 2025-10-27 20:01:14 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+Processing by CacheDemoController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cache_demo/index.html.erb within layouts/application
+  Rendered cache_demo/index.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | GC: 4.6ms)
+Completed 200 OK in 23ms (Views: 16.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 4.9ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 20:01:14 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started POST "/cache_demo/set_cache" for ::1 at 2025-10-27 20:01:17 +0700
+Processing by CacheDemoController#set_cache as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "button"=>""}
+Redirected to http://localhost:3000/cache_demo
+↳ app/controllers/cache_demo_controller.rb:12:in `set_cache'
+Completed 302 Found in 19ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 14.1ms)
+
+
+Started GET "/cache_demo" for ::1 at 2025-10-27 20:01:17 +0700
+Processing by CacheDemoController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering cache_demo/index.html.erb within layouts/application
+  Rendered cache_demo/index.html.erb within layouts/application (Duration: 1.4ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | GC: 8.6ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 13.7ms)
+
+
+Started POST "/cache_demo/get_cache" for ::1 at 2025-10-27 20:01:20 +0700
+Processing by CacheDemoController#get_cache as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "button"=>""}
+Redirected to http://localhost:3000/cache_demo
+↳ app/controllers/cache_demo_controller.rb:25:in `get_cache'
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/cache_demo" for ::1 at 2025-10-27 20:01:20 +0700
+Processing by CacheDemoController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering cache_demo/index.html.erb within layouts/application
+  Rendered cache_demo/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/cache_demo/clear_cache" for ::1 at 2025-10-27 20:01:26 +0700
+Processing by CacheDemoController#clear_cache as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "button"=>""}
+Redirected to http://localhost:3000/cache_demo
+↳ app/controllers/cache_demo_controller.rb:33:in `clear_cache'
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/cache_demo" for ::1 at 2025-10-27 20:01:26 +0700
+Processing by CacheDemoController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering cache_demo/index.html.erb within layouts/application
+  Rendered cache_demo/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started POST "/cache_demo/get_cache" for ::1 at 2025-10-27 20:01:27 +0700
+Processing by CacheDemoController#get_cache as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "button"=>""}
+Redirected to http://localhost:3000/cache_demo
+↳ app/controllers/cache_demo_controller.rb:25:in `get_cache'
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/cache_demo" for ::1 at 2025-10-27 20:01:27 +0700
+Processing by CacheDemoController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering cache_demo/index.html.erb within layouts/application
+  Rendered cache_demo/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/cache_demo" for ::1 at 2025-10-27 20:06:42 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='ExamApi'*/[0m
+Processing by CacheDemoController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cache_demo/index.html.erb within layouts/application
+  Rendered cache_demo/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | GC: 4.4ms)
+Completed 200 OK in 22ms (Views: 14.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 4.8ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-10-27 20:06:42 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started POST "/cache_demo/set_cache" for ::1 at 2025-10-27 20:06:42 +0700
+Processing by CacheDemoController#set_cache as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "button"=>""}
+Redirected to http://localhost:3000/cache_demo
+↳ app/controllers/cache_demo_controller.rb:16:in `set_cache'
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 7.5ms)
+
+
+Started GET "/cache_demo" for ::1 at 2025-10-27 20:06:42 +0700
+Processing by CacheDemoController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering cache_demo/index.html.erb within layouts/application
+  Rendered cache_demo/index.html.erb within layouts/application (Duration: 4.8ms | GC: 4.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | GC: 8.3ms)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 10.5ms)
+
+
+Started POST "/cache_demo/get_cache" for ::1 at 2025-10-27 20:06:43 +0700
+Processing by CacheDemoController#get_cache as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "button"=>""}
+Redirected to http://localhost:3000/cache_demo
+↳ app/controllers/cache_demo_controller.rb:29:in `get_cache'
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/cache_demo" for ::1 at 2025-10-27 20:06:43 +0700
+Processing by CacheDemoController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering cache_demo/index.html.erb within layouts/application
+  Rendered cache_demo/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/cache_demo/clear_cache" for ::1 at 2025-10-27 20:06:44 +0700
+Processing by CacheDemoController#clear_cache as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "button"=>""}
+Redirected to http://localhost:3000/cache_demo
+↳ app/controllers/cache_demo_controller.rb:37:in `clear_cache'
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/cache_demo" for ::1 at 2025-10-27 20:06:44 +0700
+Processing by CacheDemoController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering cache_demo/index.html.erb within layouts/application
+  Rendered cache_demo/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redis Cache Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .button-container {
+      margin: 30px 0;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      margin: 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .get-btn {
+      background-color: #2196F3;
+    }
+    .get-btn:hover {
+      background-color: #0b7dda;
+    }
+    .clear-btn {
+      background-color: #f44336;
+    }
+    .clear-btn:hover {
+      background-color: #da190b;
+    }
+    .result {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      border-left: 4px solid #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <h1>Redis Cache Demo</h1>
+  
+  <div class="button-container">
+    <%= form_with url: cache_demo_set_cache_path, method: :post do %>
+      <%= button_tag "Set Cache", type: :submit %>
+    <% end %>
+
+    <%= form_with url: cache_demo_get_cache_path, method: :post do %>
+      <%= button_tag "Get Cache", type: :submit, class: "get-btn" %>
+    <% end %>
+
+    <%= form_with url: cache_demo_clear_cache_path, method: :post do %>
+      <%= button_tag "Clear Cache", type: :submit, class: "clear-btn" %>
+    <% end %>
+  </div>
+
+  <% if @cache_result %>
+    <div class="result">
+      <strong>Result:</strong> <%= @cache_result %>
+    </div>
+  <% end %>
+</body>
+</html>

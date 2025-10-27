@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root to: proc { [200, { 'Content-Type' => 'text/plain' }, ['OK']]}
+  root to: 'api/posts#index'
 
   namespace :api do
     resources :posts
@@ -22,4 +22,9 @@ Rails.application.routes.draw do
   post "/signup", to: "users#signup"
   get "/users/:user_id", to: "users#show", as: :user
   patch "/users/:user_id", to: "users#update"
+
+  get 'cache_demo', to: 'cache_demo#index'
+  post 'cache_demo/set_cache'
+  post 'cache_demo/get_cache'
+  post 'cache_demo/clear_cache'
 end

@@ -29,7 +29,9 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+
 RSpec.configure do |config|
+  config.include CacheHelper
   # Include FactoryBot methods
   config.include FactoryBot::Syntax::Methods
 
@@ -51,6 +53,13 @@ RSpec.configure do |config|
     DatabaseCleaner.cleaning do
       example.run
     end
+  end
+
+  config.around(:each, :caching) do |example|
+    original_store = Rails.cache
+    Rails.cache = ActiveSupport::Cache::MemoryStore.new
+    example.run
+    Rails.cache = original_store
   end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

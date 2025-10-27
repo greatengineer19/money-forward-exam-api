@@ -1,18 +1,28 @@
 class Api::PostsController < ApplicationController
   before_action :set_post, only: %i[show update destroy]
+  skip_before_action :verify_authenticity_token
+
+  # def index
+  #   user_yamada = User.find_by(user_id: "TaroYamada")
+	# 	if user_yamada.nil?
+	# 		user_yamada = User.new(
+	# 			user_id: "TaroYamada",
+	# 			password: "PaSSwd4TY",
+	# 			password_confirmation: "PaSSwd4TY"
+	# 		)
+	# 		user_yamada.save
+	# 	end
+  
+  #   @posts = Post.includes(:user).order(created_at: :desc).page(params[:page])
+  # end
 
   def index
-    user_yamada = User.find_by(user_id: "TaroYamada")
-		if user_yamada.nil?
-			user_yamada = User.new(
-				user_id: "TaroYamada",
-				password: "PaSSwd4TY",
-				password_confirmation: "PaSSwd4TY"
-			)
-			user_yamada.save
-		end
-  
-    @posts = Post.includes(:user).order(created_at: :desc).page(params[:page])
+    render json: {
+      status: 'ok',
+      message: 'Money Forward API is running',
+      timestamp: Time.current.iso8601,
+      version: '1.0.0'
+    }, status: :ok
   end
 
   def new

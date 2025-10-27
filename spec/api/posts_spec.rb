@@ -21,7 +21,7 @@ RSpec.describe "Api::Posts", type: :request do
 
   describe "GET /api/posts" do
     it "returns a status ok" do
-      create_list(:post, 3)
+      create_list(:post, 3, user_id: user.id)
       
       get "/api/posts"
       
